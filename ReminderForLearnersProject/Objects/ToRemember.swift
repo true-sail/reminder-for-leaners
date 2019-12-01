@@ -11,7 +11,7 @@ import RealmSwift
 
 // 設計図
 // Realmに保存するために、「Object」というのを継承(拡張)する
-class Todo: Object {
+class ToLearn: Object {
     // データを管理するテーブルの作成
     
     // 各タスクのID
@@ -21,5 +21,5 @@ class Todo: Object {
     // タスクの内容
     @objc dynamic var body: String = ""
     // タスクの作成日
-    @objc dynamic var date: Date = Date()
+    @objc dynamic var createdAt: Date = Date()
 }

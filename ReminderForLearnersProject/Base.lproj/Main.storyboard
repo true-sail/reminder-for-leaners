@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uE7-PK-JmV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -27,7 +27,7 @@
             <objects>
                 <viewController id="oDF-ye-wwr" customClass="InputVC" customModule="ReminderForLearnersProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iLp-G5-DG8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="内容または答え" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uYE-li-Ndk">
@@ -57,15 +57,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="a2n-v3-FC4"/>
                     <connections>
-                        <outlet property="textFieldA" destination="uYE-li-Ndk" id="d8N-yZ-8mP"/>
+                        <outlet property="textFieldA" destination="uYE-li-Ndk" id="OdU-e0-hVb"/>
                         <outlet property="textFieldQ" destination="Hlx-Ws-gy3" id="FG9-sY-r35"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFS-7G-fUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="123"/>
+            <point key="canvasLocation" x="2273.913043478261" y="122.54464285714285"/>
         </scene>
-        <!--ListVC-->
+        <!--一覧-->
         <scene sceneID="pZH-JX-afe">
             <objects>
                 <viewController id="8Kc-rU-RrR" customClass="ListVC" customModule="ReminderForLearnersProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -92,15 +92,44 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="fdr-wG-K7n"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DNM-dY-jaS"/>
+                    <navigationItem key="navigationItem" title="一覧" id="DNM-dY-jaS">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="s9c-Na-gcP">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lve-Uo-yuz">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="追加"/>
+                                <connections>
+                                    <action selector="didClickButton:" destination="8Kc-rU-RrR" eventType="touchUpInside" id="m7m-Pu-kQK"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0BM-pa-gwm" id="wPf-oR-RK5"/>
-                        <segue destination="oDF-ye-wwr" kind="show" id="b3T-Y5-Ko1"/>
+                        <segue destination="oDF-ye-wwr" kind="show" identifier="toInput" id="b3T-Y5-Ko1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zz5-0y-ALB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="123"/>
+            <point key="canvasLocation" x="1457.9710144927537" y="122.54464285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oO7-4a-Hgq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uE7-PK-JmV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nNH-bH-aJ4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Kc-rU-RrR" kind="relationship" relationship="rootViewController" id="0Gf-LX-mZN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uul-wp-Elx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="547.82608695652175" y="122.54464285714285"/>
         </scene>
     </scenes>
 </document>

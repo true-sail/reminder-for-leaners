@@ -8,30 +8,49 @@
 
 import UIKit
 import UserNotifications
+import RealmSwift
 
 class InputVC: UIViewController {
-      var diary: Diary? = nil
+      var task: ToLearn? = nil
     
     @IBOutlet weak var textFieldQ: UITextField!
    
     @IBOutlet weak var textFieldA: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if !isNullOrEmpty(text: diary?.title) && !isNullOrEmpty(text: diary?.body) {
-                       textFieldQ.text = diary!.title
-                       textFieldA.text = diary!.body
+        if !isNullOrEmpty(text: task?.title) && !isNullOrEmpty(text: task?.body) {
+                       textFieldQ.text = task!.title
+                       textFieldA.text = task!.body
                }
     }
     
     @IBAction func didClickButton(_ sender: UIButton) {
         
-        // タイトルが空かチェック
-        if isNullOrEmpty(text: textFieldQ.text) {
-            // textFieldがnilまたは空の時
-            return // 処理を中断
-        }
+      // タイトルが空かチェック
+            if isNullOrEmpty(text: textFieldQ.text) {
+                // textFieldがnilまたは空の時
+                return // 処理を中断
+            }
+            
+            // 本文が空かチェック
+            if isNullOrEmpty(text: textFieldA.text) {
+                return // 処理を中断
+            }
+            
+            // タスクがnilなら新しいタスクを作る
+            // それ以外ならタスクを更新
+            if task == nil {
+                createNewTask(title: textFieldQ.text!, body: textFieldA.text!)
+            } else {
+                updateTask(newTitle: textFieldQ.text!, newBody: textFieldA.text!, task: task!)
+            }
+            
+            // 前の画面に戻る
+            navigationController?.popViewController(animated: true)
+        
         
         // 通知の作成
             let notificationContent = UNMutableNotificationContent()
@@ -62,8 +81,59 @@ class InputVC: UIViewController {
             // 通知を登録
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
+        }
+    
+        // nilか空か確かめるメソッド
+        // nilまたは空の場合true,それ以外はfalseを返す
+        func isNullOrEmpty(text: String?) -> Bool {
+            if text == nil || text == "" {
+                return true
+            } else {
+                return false
+            }
+        }
+    
+    // 新しく学んだことをRealmに保存するメソッド
+        func createNewTask(title: String, body: String) {
+            
+            // Realmに接続
+            let realm = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-        performSegue(withIdentifier: "toList", sender: nil)
+            // 新規日記作成
+            let task = ToLearn() // インスタンス化
+            
+            task.title = title
+            task.body = body
+            task.createdAt = Date()
+            task.id = getMaxId()
+            
+            // Realmに書き込む
+            try! realm.write {
+                realm.add(task)
+            }
+        }
+        
+        // 更新するためのメソッド
+        func updateTask(newTitle: String, newBody: String, task: ToLearn) {
+            
+            let realm = try! Realm()
+            
+            try! realm.write {
+                task.title = newTitle
+                task.body = newBody
+            }
+        }
+    
+        // 最大のidを取得して、返すメソッド
+            func getMaxId() -> Int {
+                // Realmに接続
+                let realm = try! Realm()
+                
+                // Automatic Increment機能
+                let id = (realm.objects(ToLearn.self).max(ofProperty: "id") as Int? ?? 0) + 1
+                
+                return id
         }
         
     }
