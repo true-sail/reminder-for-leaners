@@ -14,7 +14,7 @@
 		17BFC7E62393B86300BF4025 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BFC7E42393B86300BF4025 /* LaunchScreen.storyboard */; };
 		17BFC7EE2393BAAA00BF4025 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFC7ED2393BAAA00BF4025 /* ListVC.swift */; };
 		17BFC7F22393BBFC00BF4025 /* InputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFC7F12393BBFC00BF4025 /* InputVC.swift */; };
-		17BFC7F62393C4D900BF4025 /* ToRemember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFC7F52393C4D900BF4025 /* ToRemember.swift */; };
+		17BFC7F62393C4D900BF4025 /* ToLearn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFC7F52393C4D900BF4025 /* ToLearn.swift */; };
 		DD0307B48F9B286690786D38 /* Pods_ReminderForLearnersProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D630DA7555A80960DEC2E6 /* Pods_ReminderForLearnersProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 		17BFC7E72393B86300BF4025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17BFC7ED2393BAAA00BF4025 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		17BFC7F12393BBFC00BF4025 /* InputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVC.swift; sourceTree = "<group>"; };
-		17BFC7F52393C4D900BF4025 /* ToRemember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToRemember.swift; sourceTree = "<group>"; };
+		17BFC7F52393C4D900BF4025 /* ToLearn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToLearn.swift; sourceTree = "<group>"; };
 		5163EC046678FE5E51CF1669 /* Pods-ReminderForLearnersProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReminderForLearnersProject.debug.xcconfig"; path = "Target Support Files/Pods-ReminderForLearnersProject/Pods-ReminderForLearnersProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A4A7BC7B76E9BEBAC9A868A6 /* Pods-ReminderForLearnersProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReminderForLearnersProject.release.xcconfig"; path = "Target Support Files/Pods-ReminderForLearnersProject/Pods-ReminderForLearnersProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +91,7 @@
 		17BFC7F42393C4B500BF4025 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				17BFC7F52393C4D900BF4025 /* ToRemember.swift */,
+				17BFC7F52393C4D900BF4025 /* ToLearn.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 			files = (
 				17BFC7EE2393BAAA00BF4025 /* ListVC.swift in Sources */,
 				17BFC7F22393BBFC00BF4025 /* InputVC.swift in Sources */,
-				17BFC7F62393C4D900BF4025 /* ToRemember.swift in Sources */,
+				17BFC7F62393C4D900BF4025 /* ToLearn.swift in Sources */,
 				17BFC7DA2393B86200BF4025 /* AppDelegate.swift in Sources */,
 				17BFC7DC2393B86200BF4025 /* SceneDelegate.swift in Sources */,
 			);

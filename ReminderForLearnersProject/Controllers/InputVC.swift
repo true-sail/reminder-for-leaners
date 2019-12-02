@@ -17,6 +17,7 @@ class InputVC: UIViewController {
    
     @IBOutlet weak var textFieldA: UITextField!
     
+    @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,11 @@ class InputVC: UIViewController {
         if !isNullOrEmpty(text: task?.title) && !isNullOrEmpty(text: task?.body) {
                        textFieldQ.text = task!.title
                        textFieldA.text = task!.body
-               }
+            
+                        button.setTitle("変更", for: .normal)
+            } else {
+                    button.setTitle("追加", for: .normal)
+            }
     }
     
     @IBAction func didClickButton(_ sender: UIButton) {
@@ -65,16 +70,10 @@ class InputVC: UIViewController {
             var notificationTime = DateComponents()
             let trigger: UNNotificationTrigger
             let calendar = Calendar.current  // 現在時間を取得
+        
             // 時間の設定
-//            notificationTime.hour = calendar.component(.hour, from: datePicker.date)
-//            notificationTime.minute = calendar.component(.minute, from: datePicker.date)
-             
-            // 通知に通知時間を設定
-//            let trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: false)
-//
-//            let request = UNNotificationRequest(identifier: "uuid", content: notificationContent, trigger: trigger)
-            
-         trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
+
+         trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
         let request = UNNotificationRequest(identifier: "uuid", content: notificationContent, trigger: trigger)
         
         
